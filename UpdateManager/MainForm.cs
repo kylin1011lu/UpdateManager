@@ -843,5 +843,81 @@ namespace UpdateManager
             else if (!CBFrameSource.Checked)
                 CBCopyPush.Enabled = true;
         }
+
+        private void BtnAddGame_Click(object sender, EventArgs e)
+        {
+            string releasePath = TbRelease.Text.Trim();
+            if (!Directory.Exists(releasePath))
+            {
+                OutputToTextBox("发布目录不是有效文件夹");
+                return;
+            }
+
+            string platformPath = TbPlatform.Text.Trim();
+            if (!Directory.Exists(platformPath))
+            {
+                OutputToTextBox("平台目录不是有效文件夹");
+                return;
+            }
+
+            ListView.SelectedListViewItemCollection checkedItems = LVGames.SelectedItems;
+            if (checkedItems == null || checkedItems.Count == 0)
+            {
+                MessageBox.Show("请先选择发布游戏", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            ListViewItem item = checkedItems[0];
+            DialogResult ret = MessageBox.Show("确认拷贝游戏" + checkedItems[0].SubItems[0].Text + "到平台" + platformPath+"吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if(ret == DialogResult.OK)
+            {
+                string fromsrcpath = releasePath + "\\" + item.SubItems[0].Text + "\\" + item.SubItems[1].Text + "\\src";
+                string tosrcpath = platformPath + "\\src";
+                Constant.CopyDir(fromsrcpath, tosrcpath);
+                OutputToTextBox("拷贝目录：" + fromsrcpath);
+
+                string fromrespath = releasePath + "\\" + item.SubItems[0].Text + "\\" + item.SubItems[1].Text + "\\res";
+                string torespath = platformPath + "\\res";
+                Constant.CopyDir(fromrespath, torespath);
+                OutputToTextBox("拷贝目录：" + fromrespath);
+                OutputToTextBox(item.SubItems[0].Text + "拷贝成功");
+
+                LoadPlatormGames();
+            }
+
+            LVGames.SelectedItems.Clear();
+        }
+
+        private void BtnDeleteGame_Click(object sender, EventArgs e)
+        {
+            string platformPath = TbPlatform.Text.Trim();
+            if (!Directory.Exists(platformPath))
+            {
+                OutputToTextBox("平台目录不是有效文件夹");
+                return;
+            }
+
+            ListView.CheckedListViewItemCollection checkedItems = LVPlatGames.CheckedItems;
+            if (checkedItems == null || checkedItems.Count == 0)
+            {
+                OutputToTextBox("请在平台目录选择要删除的游戏");
+                return;
+            }
+
+            DialogResult ret = MessageBox.Show("确认从平台删除勾选的游戏吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (ret == DialogResult.Cancel)
+                return;
+
+            foreach(ListViewItem item in checkedItems)
+            {
+                string srcpath = platformPath + "\\src\\game\\game\\" + item.Tag;
+                Directory.Delete(srcpath, true);
+                OutputToTextBox("删除目录：" + srcpath);
+                string respath = platformPath + "\\res\\game\\" + item.Tag;
+                Directory.Delete(respath, true);
+                OutputToTextBox("删除目录：" + respath);
+            }
+
+            LoadPlatormGames();
+        }
     }
 }

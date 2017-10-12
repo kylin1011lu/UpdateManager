@@ -53,6 +53,8 @@
             this.BtnSelectFrame = new System.Windows.Forms.Button();
             this.CBFrameSource = new System.Windows.Forms.CheckBox();
             this.CBFrameCode = new System.Windows.Forms.CheckBox();
+            this.BtnAddGame = new System.Windows.Forms.Button();
+            this.BtnDeleteGame = new System.Windows.Forms.Button();
             this.LVPlatGames = new UpdateManager.MyListView();
             this.SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             this.TbPlatform.Location = new System.Drawing.Point(105, 420);
             this.TbPlatform.Margin = new System.Windows.Forms.Padding(2);
             this.TbPlatform.Name = "TbPlatform";
-            this.TbPlatform.Size = new System.Drawing.Size(226, 25);
+            this.TbPlatform.Size = new System.Drawing.Size(259, 25);
             this.TbPlatform.TabIndex = 5;
             this.TbPlatform.Text = "请选择平台目录";
             this.TbPlatform.TextChanged += new System.EventHandler(this.TbPlatform_TextChanged);
@@ -108,7 +110,7 @@
             // 
             // BtnUpdatePlat
             // 
-            this.BtnUpdatePlat.Location = new System.Drawing.Point(335, 414);
+            this.BtnUpdatePlat.Location = new System.Drawing.Point(368, 414);
             this.BtnUpdatePlat.Margin = new System.Windows.Forms.Padding(2);
             this.BtnUpdatePlat.Name = "BtnUpdatePlat";
             this.BtnUpdatePlat.Size = new System.Drawing.Size(90, 30);
@@ -132,7 +134,7 @@
             this.LBPlatforms.ItemHeight = 15;
             this.LBPlatforms.Location = new System.Drawing.Point(11, 486);
             this.LBPlatforms.Name = "LBPlatforms";
-            this.LBPlatforms.Size = new System.Drawing.Size(413, 214);
+            this.LBPlatforms.Size = new System.Drawing.Size(449, 214);
             this.LBPlatforms.TabIndex = 10;
             this.LBPlatforms.SelectedIndexChanged += new System.EventHandler(this.LBPlatforms_SelectedIndexChanged);
             // 
@@ -158,7 +160,7 @@
             // 
             // BtnCopy
             // 
-            this.BtnCopy.Location = new System.Drawing.Point(450, 371);
+            this.BtnCopy.Location = new System.Drawing.Point(537, 371);
             this.BtnCopy.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCopy.Name = "BtnCopy";
             this.BtnCopy.Size = new System.Drawing.Size(90, 30);
@@ -168,7 +170,7 @@
             // 
             // PBCopy
             // 
-            this.PBCopy.Location = new System.Drawing.Point(555, 371);
+            this.PBCopy.Location = new System.Drawing.Point(642, 371);
             this.PBCopy.Name = "PBCopy";
             this.PBCopy.Size = new System.Drawing.Size(435, 30);
             this.PBCopy.TabIndex = 14;
@@ -178,17 +180,17 @@
             this.TBLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBLog.Location = new System.Drawing.Point(450, 446);
+            this.TBLog.Location = new System.Drawing.Point(537, 446);
             this.TBLog.Multiline = true;
             this.TBLog.Name = "TBLog";
             this.TBLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TBLog.Size = new System.Drawing.Size(634, 252);
+            this.TBLog.Size = new System.Drawing.Size(613, 252);
             this.TBLog.TabIndex = 15;
             // 
             // CBCopyPush
             // 
             this.CBCopyPush.AutoSize = true;
-            this.CBCopyPush.Location = new System.Drawing.Point(450, 419);
+            this.CBCopyPush.Location = new System.Drawing.Point(537, 419);
             this.CBCopyPush.Name = "CBCopyPush";
             this.CBCopyPush.Size = new System.Drawing.Size(149, 19);
             this.CBCopyPush.TabIndex = 16;
@@ -200,6 +202,7 @@
             this.LVGames.FullRowSelect = true;
             this.LVGames.GridLines = true;
             this.LVGames.Location = new System.Drawing.Point(15, 55);
+            this.LVGames.MultiSelect = false;
             this.LVGames.Name = "LVGames";
             this.LVGames.Size = new System.Drawing.Size(445, 300);
             this.LVGames.Sorting = System.Windows.Forms.SortOrder.Descending;
@@ -209,7 +212,7 @@
             // 
             // BtnUpdateFrame
             // 
-            this.BtnUpdateFrame.Location = new System.Drawing.Point(335, 371);
+            this.BtnUpdateFrame.Location = new System.Drawing.Point(368, 371);
             this.BtnUpdateFrame.Margin = new System.Windows.Forms.Padding(2);
             this.BtnUpdateFrame.Name = "BtnUpdateFrame";
             this.BtnUpdateFrame.Size = new System.Drawing.Size(90, 30);
@@ -222,7 +225,7 @@
             this.TbFrame.Location = new System.Drawing.Point(105, 377);
             this.TbFrame.Margin = new System.Windows.Forms.Padding(2);
             this.TbFrame.Name = "TbFrame";
-            this.TbFrame.Size = new System.Drawing.Size(226, 25);
+            this.TbFrame.Size = new System.Drawing.Size(259, 25);
             this.TbFrame.TabIndex = 20;
             this.TbFrame.Text = "请选择框架目录";
             // 
@@ -239,7 +242,7 @@
             // CBFrameSource
             // 
             this.CBFrameSource.AutoSize = true;
-            this.CBFrameSource.Location = new System.Drawing.Point(620, 418);
+            this.CBFrameSource.Location = new System.Drawing.Point(707, 418);
             this.CBFrameSource.Name = "CBFrameSource";
             this.CBFrameSource.Size = new System.Drawing.Size(152, 19);
             this.CBFrameSource.TabIndex = 22;
@@ -250,7 +253,7 @@
             // CBFrameCode
             // 
             this.CBFrameCode.AutoSize = true;
-            this.CBFrameCode.Location = new System.Drawing.Point(778, 418);
+            this.CBFrameCode.Location = new System.Drawing.Point(865, 418);
             this.CBFrameCode.Name = "CBFrameCode";
             this.CBFrameCode.Size = new System.Drawing.Size(113, 19);
             this.CBFrameCode.TabIndex = 23;
@@ -258,12 +261,32 @@
             this.CBFrameCode.UseVisualStyleBackColor = true;
             this.CBFrameCode.CheckedChanged += new System.EventHandler(this.CBFrameCode_CheckedChanged);
             // 
+            // BtnAddGame
+            // 
+            this.BtnAddGame.Location = new System.Drawing.Point(468, 194);
+            this.BtnAddGame.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnAddGame.Name = "BtnAddGame";
+            this.BtnAddGame.Size = new System.Drawing.Size(60, 30);
+            this.BtnAddGame.TabIndex = 24;
+            this.BtnAddGame.Text = "->";
+            this.BtnAddGame.Click += new System.EventHandler(this.BtnAddGame_Click);
+            // 
+            // BtnDeleteGame
+            // 
+            this.BtnDeleteGame.Location = new System.Drawing.Point(468, 239);
+            this.BtnDeleteGame.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnDeleteGame.Name = "BtnDeleteGame";
+            this.BtnDeleteGame.Size = new System.Drawing.Size(60, 30);
+            this.BtnDeleteGame.TabIndex = 25;
+            this.BtnDeleteGame.Text = "删除";
+            this.BtnDeleteGame.Click += new System.EventHandler(this.BtnDeleteGame_Click);
+            // 
             // LVPlatGames
             // 
             this.LVPlatGames.CheckBoxes = true;
             this.LVPlatGames.FullRowSelect = true;
             this.LVPlatGames.GridLines = true;
-            this.LVPlatGames.Location = new System.Drawing.Point(467, 55);
+            this.LVPlatGames.Location = new System.Drawing.Point(537, 55);
             this.LVPlatGames.Name = "LVPlatGames";
             this.LVPlatGames.Size = new System.Drawing.Size(620, 300);
             this.LVPlatGames.Sorting = System.Windows.Forms.SortOrder.Ascending;
@@ -274,7 +297,9 @@
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1102, 713);
+            this.ClientSize = new System.Drawing.Size(1168, 713);
+            this.Controls.Add(this.BtnDeleteGame);
+            this.Controls.Add(this.BtnAddGame);
             this.Controls.Add(this.CBFrameCode);
             this.Controls.Add(this.CBFrameSource);
             this.Controls.Add(this.BtnUpdateFrame);
@@ -300,7 +325,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "平台拷贝管理工具";
             this.ResumeLayout(false);
@@ -334,6 +358,8 @@
         private System.Windows.Forms.Button BtnSelectFrame;
         private System.Windows.Forms.CheckBox CBFrameSource;
         private System.Windows.Forms.CheckBox CBFrameCode;
+        private System.Windows.Forms.Button BtnAddGame;
+        private System.Windows.Forms.Button BtnDeleteGame;
     }
 }
 

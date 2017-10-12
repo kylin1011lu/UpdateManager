@@ -4,5 +4,6 @@ Release/
 *.db
 *.suo
 *.sdf
+*.opensdf
 obj/
 
