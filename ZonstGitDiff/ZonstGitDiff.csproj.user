@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>C:\Users\dall\AppData\Local\Temp\TortoiseGit\game_create_room_view-60e9c4e.002.luac C:\Users\dall\AppData\Local\Temp\TortoiseGit\game_create_room_view-74c1c2d.002.luac</StartArguments>
+  </PropertyGroup>
+</Project>
