@@ -39,7 +39,9 @@ namespace ZonstGitDiff
                 } while (ret == 1);
 
                 // Create a file to write to.
-                string newPath = fi1.DirectoryName + "\\decode_" + fi1.Name;
+                string tmpPath = System.IO.Path.GetTempPath();
+
+                string newPath = tmpPath + "\\decode\\decode_" + fi1.Name;
                 using (StreamWriter sw = File.CreateText(newPath))
                 {
                     sw.Write(_builder);

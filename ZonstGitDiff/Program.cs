@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,13 @@ namespace ZonstGitDiff
             for(int i = 0; i < args.Length; ++i)
             {
                 Console.WriteLine(args[i]);
+            }
+
+            // Create a file to write to.
+            string tmpPath = System.IO.Path.GetTempPath();
+
+            if (!Directory.Exists(tmpPath + "\\decode")){
+                Directory.CreateDirectory(tmpPath + "\\decode");
             }
 
             string newPath0 = Tool.DecodeLuac(args[0]);
